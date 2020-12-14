@@ -123,6 +123,7 @@ celerybeat.pid
 env/
 venv/
 z_dws_b_venv/
+z_dws_b_venv/share/man/man1/
 ENV/
 env.bak/
 venv.bak/
