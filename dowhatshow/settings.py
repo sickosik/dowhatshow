@@ -11,6 +11,7 @@ https://docs.djangoproject.com/en/3.1/ref/settings/
 """
 
 from pathlib import Path
+import os
 
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve().parent.parent
@@ -25,7 +26,7 @@ SECRET_KEY = '+8g5%kq=xucqz(w#t&yo)_gipj$3y5r+-ea-^p^9))an9xhb=x'
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = ['*']
 
 
 # Application definition
@@ -37,6 +38,9 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
+    'rest_framework',
+    'django_filters',
+    'menu',
 ]
 
 MIDDLEWARE = [
@@ -74,10 +78,20 @@ WSGI_APPLICATION = 'dowhatshow.wsgi.application'
 # https://docs.djangoproject.com/en/3.1/ref/settings/#databases
 
 DATABASES = {
+#     'default': {
+#         'ENGINE': 'django.db.backends.sqlite3',
+#         'NAME': BASE_DIR / 'db.sqlite3',
+#     }
+# }
+
     'default': {
-        'ENGINE': 'django.db.backends.sqlite3',
-        'NAME': BASE_DIR / 'db.sqlite3',
-    }
+     'ENGINE': 'django.db.backends.mysql',
+     'NAME': 'DWS_DB',  # DB명
+     'USER': 'DWS',  # 데이터베이스 계정
+     'PASSWORD': 'dowhatshow123',   # 계정 비밀번호
+     'HOST': 'dwsdb.cepplsmkek88.us-east-1.rds.amazonaws.com',  # 데이테베이스 IP
+     'PORT': '3306',  # 데이터베이스 port
+     }
 }
 
 
@@ -105,7 +119,7 @@ AUTH_PASSWORD_VALIDATORS = [
 
 LANGUAGE_CODE = 'en-us'
 
-TIME_ZONE = 'UTC'
+TIME_ZONE = 'Asia/Seoul'
 
 USE_I18N = True
 
