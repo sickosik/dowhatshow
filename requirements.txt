@@ -3,6 +3,7 @@ backcall==0.2.0
 colorama==0.4.4
 decorator==4.4.2
 Django==3.1.4
+django-cors-headers==3.6.0
 django-extensions==3.1.0
 django-filter==2.4.0
 djangorestframework==3.12.2
