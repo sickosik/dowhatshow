@@ -15,4 +15,6 @@ urlpatterns = [
   path('menu/beverage', views.BeverageMenu),
   path('menu/add', views.AdditionalMenu),
   
+  # Recommand Menu
+  # path('menu/recommand', views.RecommandMenu)
 ]

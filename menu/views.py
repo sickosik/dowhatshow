@@ -9,12 +9,14 @@ from django_filters.rest_framework import DjangoFilterBackend, FilterSet
 from django.db.models import Q
 from .models import Menu
 from .serializers import MenuSerializer
+from django.http import HttpResponse, JsonResponse
 
 # Create your views here.
 
 @api_view(['GET'])
 def helloAPI(request):
     return Response("hello world!")
+
 
 # Menu Viewset
 class ListMenu(generics.ListAPIView):
@@ -24,6 +26,7 @@ class ListMenu(generics.ListAPIView):
 class DetailMenu(generics.RetrieveAPIView):
     queryset = Menu.objects.all()
     serializer_class = MenuSerializer
+
 
 # Category in Menu
 @api_view(['GET'])
@@ -54,8 +57,10 @@ def AdditionalMenu(request):
     serializer = MenuSerializer(queryset, many=True)
     return Response(serializer.data)
 
-# @api_view(['GET'])
 
-# def ListMenuAPI(request):
-#     value = request.GET.get('keyword')
-#     return Response(serializer.data)
+# Recommand
+# @api_view(['GET'])
+# def RecommandMenu(request):
+#     dummy_data = {
+#     }
+#     return JsonResponse(dummy_data)
